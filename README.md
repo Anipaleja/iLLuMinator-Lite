@@ -1,6 +1,6 @@
 # iLLuMinator Lite Practical Model (120M Parameters)
 
-This folder contains the practical, lightweight version of iLLuMinator designed to run efficiently on consumer hardware.
+> This repository contains the practical, lightweight version of iLLuMinator-4.9B designed to run efficiently on consumer hardware with 120 Million parameters.
 
 ## Model Specifications
 
