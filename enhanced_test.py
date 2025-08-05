@@ -174,7 +174,7 @@ class EnhancedModelTester:
     
     def interactive_chat(self):
         """Interactive chat mode"""
-        print(f"\n💬 Interactive Chat Mode")
+        print(f"\nInteractive Chat Mode")
         print("=" * 40)
         print("Type 'quit' or 'exit' to end the chat")
         print("Type 'help' for commands")
@@ -182,10 +182,10 @@ class EnhancedModelTester:
         conversation_history = []
         
         while True:
-            user_input = input("\n🧑 You: ").strip()
+            user_input = input("\nYou: ").strip()
             
             if user_input.lower() in ['quit', 'exit', 'bye']:
-                print("👋 Goodbye!")
+                print("Goodbye!")
                 break
             
             if user_input.lower() == 'help':
@@ -200,14 +200,14 @@ class EnhancedModelTester:
                 try:
                     temp = float(user_input.split()[1])
                     self.current_temp = max(0.1, min(1.0, temp))
-                    print(f"🌡️ Temperature set to {self.current_temp}")
+                    print(f"Temperature set to {self.current_temp}")
                 except:
-                    print("❌ Invalid temperature. Use 0.1-1.0")
+                    print("Invalid temperature. Use 0.1-1.0")
                 continue
             
             if user_input.lower() == 'clear':
                 conversation_history = []
-                print("🧹 Conversation history cleared")
+                print("Conversation history cleared")
                 continue
             
             if user_input.lower() == 'save':
@@ -224,7 +224,7 @@ class EnhancedModelTester:
                 temperature=getattr(self, 'current_temp', 0.7)
             )
             
-            print(f"🤖 iLLuMinator: {response}")
+            print(f"iLLuMinator: {response}")
             
             # Save to history
             conversation_history.append({
@@ -236,7 +236,7 @@ class EnhancedModelTester:
     def _save_conversation(self, history: List[Dict]):
         """Save conversation history"""
         if not history:
-            print("📝 No conversation to save")
+            print("No conversation to save")
             return
         
         filename = f"conversation_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
@@ -244,11 +244,11 @@ class EnhancedModelTester:
         with open(filename, 'w') as f:
             json.dump(history, f, indent=2)
         
-        print(f"💾 Conversation saved to {filename}")
+        print(f"Conversation saved to {filename}")
     
     def quick_test(self):
         """Quick functionality test"""
-        print(f"\n⚡ Quick Test")
+        print(f"\nQuick Test")
         print("=" * 30)
         
         quick_prompts = [
@@ -265,7 +265,7 @@ class EnhancedModelTester:
 
 def main():
     """Main test function"""
-    print("🎯 iLLuMinator Enhanced Model Testing")
+    print("iLLuMinator Enhanced Model Testing")
     print("=" * 50)
     
     # Try to load best model first, fallback to regular
@@ -280,19 +280,19 @@ def main():
     tester = None
     for path in model_paths:
         if os.path.exists(path):
-            print(f"📁 Found model: {path}")
+            print(f"Found model: {path}")
             tester = EnhancedModelTester(path)
             break
     
     if not tester:
-        print("⚠️ No trained model found. Please run training first.")
+        print("No trained model found. Please run training first.")
         print("Available options:")
         print("  python train_enhanced.py  # Enhanced training")
         print("  python train_practical.py  # Basic training")
         return
     
     while True:
-        print(f"\n🎮 Choose test mode:")
+        print(f"\nChoose test mode:")
         print("1. Quick Test (3 samples)")
         print("2. Comprehensive Test (all categories)")
         print("3. Interactive Chat")
@@ -310,11 +310,11 @@ def main():
             tester.interactive_chat()
         
         elif choice == '4':
-            print("👋 Goodbye!")
+            print("Goodbye!")
             break
         
         else:
-            print("❌ Invalid choice. Please enter 1-4.")
+            print("Invalid choice. Please enter 1-4.")
 
 if __name__ == "__main__":
     main()
