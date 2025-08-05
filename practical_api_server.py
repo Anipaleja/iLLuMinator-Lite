@@ -215,10 +215,10 @@ async def examples():
 
 def main():
     """Run the server"""
-    print("🚀 Starting iLLuMinator Practical API Server")
-    print("📚 Interactive docs will be available at: http://localhost:8001/docs")
-    print("🔍 Health check: http://localhost:8001/health")
-    print("💬 Chat endpoint: http://localhost:8001/chat")
+    print("Starting iLLuMinator Practical API Server")
+    print("Interactive docs will be available at: http://localhost:8001/docs")
+    print("Health check: http://localhost:8001/health")
+    print("Chat endpoint: http://localhost:8001/chat")
     
     uvicorn.run(
         app,
