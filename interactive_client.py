@@ -18,9 +18,9 @@ class PracticaliLLuMinatorClient:
         
         # Test connection
         if self.check_health():
-            print("✅ Connected to iLLuMinator Practical API")
+            print("Connected to iLLuMinator Practical API")
         else:
-            print("❌ Failed to connect to API")
+            print("Failed to connect to API")
     
     def check_health(self) -> bool:
         """Check if the API is healthy"""
@@ -87,7 +87,7 @@ class PracticaliLLuMinatorClient:
 
 def main():
     """Interactive chat interface"""
-    print("🤖 iLLuMinator Practical AI - Interactive Chat")
+    print("iLLuMinator Practical AI - Interactive Chat")
     print("=" * 50)
     print("Commands:")
     print("  /info     - Show model information")
@@ -99,29 +99,29 @@ def main():
     client = PracticaliLLuMinatorClient()
     
     if not client.check_health():
-        print("❌ API server not available. Please start it with:")
+        print("API server not available. Please start it with:")
         print("   python practical_api_server.py")
         return
     
     # Show model info
     info = client.get_model_info()
     if "error" not in info:
-        print(f"🧠 Model: {info.get('model_type', 'Unknown')}")
-        print(f"📊 Parameters: {info.get('parameters', 'Unknown')}")
+        print(f"Model: {info.get('model_type', 'Unknown')}")
+        print(f"Parameters: {info.get('parameters', 'Unknown')}")
         print()
     
-    print("💬 Start chatting! (type /quit to exit)")
+    print("Start chatting! (type /quit to exit)")
     print("-" * 30)
     
     while True:
         try:
-            user_input = input("\n🤔 You: ").strip()
+            user_input = input("\nYou: ").strip()
             
             if not user_input:
                 continue
             
             if user_input.lower() in ['/quit', '/exit', 'quit', 'exit']:
-                print("👋 Goodbye!")
+                print("Goodbye!")
                 break
             
             elif user_input.lower() in ['/help', 'help']:
