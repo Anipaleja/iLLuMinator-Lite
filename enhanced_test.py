@@ -21,14 +21,14 @@ class EnhancedModelTester:
         self.model_path = model_path
         
         # Load tokenizer
-        print("📚 Loading tokenizer...")
+        print("Loading tokenizer...")
         self.tokenizer = iLLuMinatorTokenizer()
         
         # Load model
-        print(f"🧠 Loading enhanced model from {model_path}...")
+        print(f"Loading enhanced model from {model_path}...")
         self.model = self._load_model()
         
-        print(f"✅ Model loaded successfully on {self.device}")
+        print(f"Model loaded successfully on {self.device}")
     
     def _load_model(self):
         """Load the trained model"""
@@ -39,10 +39,10 @@ class EnhancedModelTester:
         if os.path.exists(self.model_path):
             checkpoint = torch.load(self.model_path, map_location=self.device)
             model.load_state_dict(checkpoint['model_state_dict'])
-            print(f"📊 Training history loaded: {len(checkpoint.get('train_losses', []))} epochs")
+            print(f"Training history loaded: {len(checkpoint.get('train_losses', []))} epochs")
         else:
-            print(f"⚠️ Model file not found: {self.model_path}")
-            print("🔄 Using untrained model for demonstration")
+            print(f"Model file not found: {self.model_path}")
+            print("Using untrained model for demonstration")
         
         model.to(self.device)
         model.eval()
@@ -111,13 +111,13 @@ class EnhancedModelTester:
             ]
         }
         
-        print("🧪 Running Comprehensive Test Suite")
+        print("Running Comprehensive Test Suite")
         print("=" * 60)
         
         results = {}
         
         for category, prompts in test_categories.items():
-            print(f"\n🔍 Testing Category: {category}")
+            print(f"\nTesting Category: {category}")
             print("-" * 40)
             
             category_results = []
@@ -130,7 +130,7 @@ class EnhancedModelTester:
                     response = self.generate_response(prompt, temperature=temp)
                     
                     if temp == 0.7:  # Show main response
-                        print(f"   🤖: {response}")
+                        print(f"  : {response}")
                     
                     category_results.append({
                         'prompt': prompt,
@@ -148,12 +148,12 @@ class EnhancedModelTester:
     
     def _analyze_results(self, results: Dict):
         """Analyze and display test results"""
-        print(f"\n📊 Test Analysis")
+        print(f"\nTest Analysis")
         print("=" * 40)
         
         total_tests = sum(len(category_results) for category_results in results.values())
         
-        print(f"📈 Total tests run: {total_tests}")
+        print(f"Total tests run: {total_tests}")
         
         # Response length analysis
         all_lengths = []
@@ -162,11 +162,11 @@ class EnhancedModelTester:
         
         if all_lengths:
             avg_length = sum(all_lengths) / len(all_lengths)
-            print(f"📏 Average response length: {avg_length:.1f} words")
-            print(f"📐 Response length range: {min(all_lengths)} - {max(all_lengths)} words")
+            print(f"Average response length: {avg_length:.1f} words")
+            print(f"Response length range: {min(all_lengths)} - {max(all_lengths)} words")
         
         # Category performance
-        print(f"\n📋 Category breakdown:")
+        print(f"\nCategory breakdown:")
         for category, category_results in results.items():
             temp_07_results = [r for r in category_results if r['temperature'] == 0.7]
             avg_cat_length = sum(r['response_length'] for r in temp_07_results) / len(temp_07_results)
