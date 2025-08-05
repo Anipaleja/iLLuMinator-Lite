@@ -134,28 +134,28 @@ def main():
             elif user_input.lower() == '/info':
                 info = client.get_model_info()
                 if "error" not in info:
-                    print("\n📊 Model Information:")
+                    print("\nModel Information:")
                     for key, value in info.items():
                         print(f"  {key}: {value}")
                 else:
-                    print(f"❌ Error: {info['error']}")
+                    print(f"Error: {info['error']}")
                 continue
             
             elif user_input.lower() == '/complete':
-                prompt = input("📝 Enter prompt for completion: ").strip()
+                prompt = input("Enter prompt for completion: ").strip()
                 if prompt:
-                    print("🤖 Completing...", end="", flush=True)
+                    print("Completing...", end="", flush=True)
                     result = client.get_completion(prompt)
                     
                     if "error" not in result:
-                        print(f"\r🤖 Completion: {result['completion']}")
-                        print(f"⏱️  Generated in {result['generation_time']}s")
+                        print(f"\rCompletion: {result['completion']}")
+                        print(f"Generated in {result['generation_time']}s")
                     else:
-                        print(f"\r❌ Error: {result['error']}")
+                        print(f"\rError: {result['error']}")
                 continue
             
             # Regular chat
-            print("🤖 iLLuMinator: ", end="", flush=True)
+            print("iLLuMinator: ", end="", flush=True)
             
             start_time = time.time()
             result = client.chat(user_input)
@@ -163,16 +163,16 @@ def main():
             
             if "error" not in result:
                 print(f"{result['response']}")
-                print(f"⏱️  Response time: {result['generation_time']}s")
+                print(f"Response time: {result['generation_time']}s")
             else:
-                print(f"❌ Error: {result['error']}")
-                print(f"⏱️  Total time: {end_time - start_time:.3f}s")
+                print(f"Error: {result['error']}")
+                print(f"Total time: {end_time - start_time:.3f}s")
             
         except KeyboardInterrupt:
-            print("\n\n👋 Goodbye!")
+            print("\n\nGoodbye!")
             break
         except Exception as e:
-            print(f"\n❌ Unexpected error: {e}")
+            print(f"\nUnexpected error: {e}")
 
 if __name__ == "__main__":
     main()
