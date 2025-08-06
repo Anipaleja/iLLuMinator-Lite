@@ -84,23 +84,23 @@ class PracticalTrainer:
         self.model_save_path = model_save_path
         
         # Initialize tokenizer
-        print("📚 Loading tokenizer...")
+        print("Loading tokenizer...")
         self.tokenizer = iLLuMinatorTokenizer()
         
         # Initialize model
-        print("🧠 Creating practical model...")
+        print("Creating practical model...")
         self.model = iLLuMinatorPractical(vocab_size=len(self.tokenizer))
         
         # Setup training
         self.optimizer = optim.AdamW(self.model.parameters(), lr=1e-4, weight_decay=0.01)
         self.criterion = nn.CrossEntropyLoss(ignore_index=self.tokenizer.tokenizer.pad_token_id)
         
-        print(f"✅ Trainer initialized with {sum(p.numel() for p in self.model.parameters()):,} parameters")
+        print(f"Trainer initialized with {sum(p.numel() for p in self.model.parameters()):,} parameters")
     
     def train(self, epochs: int = 5, batch_size: int = 4):
         """Train the model on conversation data"""
         
-        print(f"🚀 Starting training for {epochs} epochs...")
+        print(f"Starting training for {epochs} epochs...")
         
         # Create dataset
         dataset = ConversationDataset(self.tokenizer)
@@ -112,7 +112,7 @@ class PracticalTrainer:
             total_loss = 0
             num_batches = 0
             
-            print(f"\n📖 Epoch {epoch + 1}/{epochs}")
+            print(f"\nEpoch {epoch + 1}/{epochs}")
             
             for batch_idx, (input_ids, target_ids) in enumerate(dataloader):
                 # Forward pass
@@ -148,7 +148,7 @@ class PracticalTrainer:
         
         # Save model
         self.save_model()
-        print(f"✅ Training completed!")
+        print(f"Training completed!")
     
     def _test_generation(self):
         """Test generation during training"""
