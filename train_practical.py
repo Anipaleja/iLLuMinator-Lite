@@ -168,7 +168,7 @@ class PracticalTrainer:
             )
         
         response = self.tokenizer.decode(generated[0].tolist(), skip_special_tokens=True)
-        print(f"  🤖 Test: {response}")
+        print(f"Test: {response}")
         
         self.model.train()
     
@@ -181,26 +181,26 @@ class PracticalTrainer:
         }
         
         torch.save(checkpoint, self.model_save_path)
-        print(f"💾 Model saved to {self.model_save_path}")
+        print(f"Model saved to {self.model_save_path}")
 
 def main():
     """Run training"""
-    print("🎯 iLLuMinator Practical Training")
+    print("iLLuMinator Practical Training")
     print("=" * 50)
     
     trainer = PracticalTrainer()
     
-    print(f"\n📊 Dataset size: {len(ConversationDataset(trainer.tokenizer))} examples")
+    print(f"\nDataset size: {len(ConversationDataset(trainer.tokenizer))} examples")
     
     try:
         trainer.train(epochs=10, batch_size=2)  # Small batch size for memory
         
-        print(f"\n🎉 Training completed successfully!")
-        print(f"📁 Model weights saved to: illuminator_practical_weights.pth")
-        print(f"🚀 Run 'python practical_ai.py' to test the trained model!")
+        print(f"\nTraining completed successfully!")
+        print(f"Model weights saved to: illuminator_practical_weights.pth")
+        print(f"Run 'python practical_ai.py' to test the trained model!")
         
     except Exception as e:
-        print(f"❌ Training failed: {e}")
+        print(f"Training failed: {e}")
         import traceback
         traceback.print_exc()
 
