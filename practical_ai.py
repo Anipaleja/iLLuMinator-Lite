@@ -15,13 +15,13 @@ class PracticaliLLuMinatorAI:
     """Practical AI system with efficient inference"""
     
     def __init__(self, model_path: str = None):
-        print("🚀 Initializing Practical iLLuMinator AI...")
+        print("Initializing Practical iLLuMinator AI...")
         
         # Initialize tokenizer
-        print("📚 Loading tokenizer...")
+        print("Loading tokenizer...")
         try:
             self.tokenizer = iLLuMinatorTokenizer()
-            print(f"✅ Tokenizer loaded with {len(self.tokenizer)} tokens")
+            print(f"Tokenizer loaded with {len(self.tokenizer)} tokens")
         except Exception as e:
             print(f"❌ Tokenizer failed: {e}")
             return
