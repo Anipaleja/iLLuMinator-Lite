@@ -165,7 +165,7 @@ class PracticaliLLuMinatorAI:
         if not self.model_loaded:
             return {"error": "Model not loaded"}
         
-        print(f"🔥 Benchmarking {num_iterations} generations...")
+        print(f"Benchmarking {num_iterations} generations...")
         
         prompt = "The future of AI is"
         times = []
@@ -189,21 +189,21 @@ class PracticaliLLuMinatorAI:
             "model_size": "120M parameters"
         }
         
-        print(f"⚡ Average generation time: {avg_time:.3f}s")
-        print(f"⚡ Estimated speed: {tokens_per_second:.1f} tokens/second")
+        print(f"Average generation time: {avg_time:.3f}s")
+        print(f"Estimated speed: {tokens_per_second:.1f} tokens/second")
         
         return results
 
 def main():
     """Test the practical system"""
-    print("🧪 Testing Practical iLLuMinator AI")
+    print("Testing Practical iLLuMinator AI")
     print("=" * 50)
     
     # Initialize
     ai = PracticaliLLuMinatorAI()
     
     if not ai.model_loaded:
-        print("❌ Model failed to load, exiting...")
+        print("Model failed to load, exiting...")
         return
     
     # Test queries
@@ -216,15 +216,15 @@ def main():
     ]
     
     for query in test_queries:
-        print(f"\n🤔 User: {query}")
-        print("🤖 iLLuMinator: ", end="")
+        print(f"\nUser: {query}")
+        print("iLLuMinator: ", end="")
         
         start_time = time.time()
         response = ai.chat(query)
         end_time = time.time()
         
         print(response)
-        print(f"⏱️  ({end_time - start_time:.3f}s)")
+        print(f" ({end_time - start_time:.3f}s)")
         print("-" * 40)
     
     # Benchmark
