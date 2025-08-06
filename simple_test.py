@@ -95,7 +95,7 @@ def main():
             test_model(path)
             break
     else:
-        print("❌ No trained models found!")
+        print("No trained models found!")
         print("Available training options:")
         print("  python train_improved.py   # Recommended")
         print("  python train_enhanced.py   # Advanced")
