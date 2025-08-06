@@ -234,7 +234,7 @@ def main():
         print(f"Test with: python simple_test.py")
         
     except Exception as e:
-        print(f"❌ Training failed: {e}")
+        print(f"Training failed: {e}")
         import traceback
         traceback.print_exc()
 
