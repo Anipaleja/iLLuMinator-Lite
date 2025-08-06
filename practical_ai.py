@@ -228,16 +228,16 @@ def main():
         print("-" * 40)
     
     # Benchmark
-    print(f"\n📊 Model Info:")
+    print(f"\nModel Info:")
     info = ai.get_model_info()
     for key, value in info.items():
         print(f"  {key}: {value}")
     
     # Quick benchmark
-    print(f"\n⚡ Performance Benchmark:")
+    print(f"\nPerformance Benchmark:")
     results = ai.benchmark_performance(5)
     
-    print(f"\n✅ Practical iLLuMinator AI test completed!")
+    print(f"\nPractical iLLuMinator AI test completed!")
 
 if __name__ == "__main__":
     main()
