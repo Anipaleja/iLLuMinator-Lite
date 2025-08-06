@@ -177,11 +177,11 @@ class EnhancedTrainer:
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
         # Initialize tokenizer
-        print("📚 Loading tokenizer...")
+        print("Loading tokenizer...")
         self.tokenizer = iLLuMinatorTokenizer()
         
         # Initialize model with dropout for regularization
-        print("🧠 Creating enhanced practical model...")
+        print("Creating enhanced practical model...")
         self.model = iLLuMinatorPractical(vocab_size=len(self.tokenizer))
         self.model.to(self.device)
         
@@ -210,14 +210,14 @@ class EnhancedTrainer:
         self.val_losses = []
         self.learning_rates = []
         
-        print(f"✅ Enhanced trainer initialized")
-        print(f"📊 Model parameters: {sum(p.numel() for p in self.model.parameters()):,}")
-        print(f"🔧 Device: {self.device}")
+        print(f"Enhanced trainer initialized")
+        print(f"Model parameters: {sum(p.numel() for p in self.model.parameters()):,}")
+        print(f"Device: {self.device}")
     
     def train(self, epochs: int = 15, batch_size: int = 4, validation_split: float = 0.2):
         """Train with validation and early stopping"""
         
-        print(f"🚀 Starting enhanced training for {epochs} epochs...")
+        print(f"Starting enhanced training for {epochs} epochs...")
         
         # Create dataset
         full_dataset = EnhancedConversationDataset(self.tokenizer, augment_data=True)
@@ -235,14 +235,14 @@ class EnhancedTrainer:
         train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
         val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=0)
         
-        print(f"📊 Dataset split: {train_size} train, {val_size} validation samples")
+        print(f"Dataset split: {train_size} train, {val_size} validation samples")
         
         best_val_loss = float('inf')
         patience = 5
         patience_counter = 0
         
         for epoch in range(epochs):
-            print(f"\n📖 Epoch {epoch + 1}/{epochs}")
+            print(f"\nEpoch {epoch + 1}/{epochs}")
             
             # Training phase
             train_loss = self._train_epoch(train_loader, epoch)
