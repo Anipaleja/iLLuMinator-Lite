@@ -23,11 +23,11 @@ class PracticaliLLuMinatorAI:
             self.tokenizer = iLLuMinatorTokenizer()
             print(f"Tokenizer loaded with {len(self.tokenizer)} tokens")
         except Exception as e:
-            print(f"❌ Tokenizer failed: {e}")
+            print(f"Tokenizer failed: {e}")
             return
         
         # Initialize model
-        print("🧠 Loading practical model...")
+        print("Loading practical model...")
         try:
             self.model = iLLuMinatorPractical(vocab_size=len(self.tokenizer))
             
@@ -37,14 +37,14 @@ class PracticaliLLuMinatorAI:
             elif os.path.exists("illuminator_practical_weights.pth"):
                 self._load_weights("illuminator_practical_weights.pth")
             else:
-                print("⚠️  No trained weights found, using randomly initialized weights")
+                print("No trained weights found, using randomly initialized weights")
             
             self.model.eval()
             self.model_loaded = True
-            print("✅ Practical model ready!")
+            print("Practical model ready!")
             
         except Exception as e:
-            print(f"❌ Model loading failed: {e}")
+            print(f"Model loading failed: {e}")
             self.model_loaded = False
     
     def _load_weights(self, model_path: str):
@@ -55,9 +55,9 @@ class PracticaliLLuMinatorAI:
                 self.model.load_state_dict(checkpoint['model_state_dict'])
             else:
                 self.model.load_state_dict(checkpoint)
-            print(f"✅ Loaded weights from {model_path}")
+            print(f"Loaded weights from {model_path}")
         except Exception as e:
-            print(f"⚠️  Could not load weights: {e}")
+            print(f"Could not load weights: {e}")
     
     def generate_response(self, prompt: str, max_tokens: int = 100, temperature: float = 0.8) -> str:
         """Generate response efficiently"""
