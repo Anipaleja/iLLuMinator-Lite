@@ -299,7 +299,7 @@ def main():
         print(f"Test with: python enhanced_test.py")
         
     except Exception as e:
-        print(f"❌ Training failed: {e}")
+        print(f"Training failed: {e}")
         import traceback
         traceback.print_exc()
 
